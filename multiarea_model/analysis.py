@@ -144,7 +144,7 @@ class Analysis:
                             files = glob.glob(os.path.join(rec_dir, fp))
                             dat = pd.DataFrame(columns=columns)
                             for f in files:
-                                dat = dat.append(pd.read_csv(f, **csv_args),
+                                dat = pd.concat([dat, pd.read_csv(f, **csv_args)],
                                                  ignore_index=True)
                             self.all_spikes = dat
                         # print(area, pop)
